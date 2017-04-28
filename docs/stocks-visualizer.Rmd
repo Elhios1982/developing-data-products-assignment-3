@@ -1,0 +1,39 @@
+---
+title: "Developing Data Products | Week 4 Assignment"
+author: "Hector Hernandez Ortega"
+date: "April 28, 2017"
+output: ioslides_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Stock Visualizer Application
+
+The "Stock Visualizer" application looks up stock prices by ticker symbol and displays the result as a line chart. 
+
+![Stock Visualizer Application](C:\github-repos\coursera-data-science\assignments\developing-data-products\stockVis\images\stock-visualizer-v2.PNG)
+
+## How to use it?
+
+- **"Symbol" textbox:** Type a stock to examine (required).
+- **"Date Range" calendars:** Defines the dates which we're interested in (required).
+- **Plot y axis on log scale checkbox:** Plot stock prices on the y axis.
+- **Adjust prices for inflation checkbox:** Adjusts prices for inflation.
+
+## Core server calculation
+
+```{r, echo=TRUE, fig.height=3, fig.width=5, message=FALSE, warning=FALSE}
+library(quantmod); source("../helpers.R")
+  dataInput <- getSymbols('SPY', src = "yahoo", from = '2013-01-01',
+               to = '2015-12-31', auto.assign = FALSE)
+    chartSeries(dataInput, theme = chartTheme("white")
+                , type = "line", log.scale = FALSE, TA = NULL)
+```
+
+
+
+
+## Information source
+By default, "Stock Visualizer" displays the SPY ticker (an index of the entire S & P 500). To look up a different stock, type in a stock symbol that Yahoo finance will recognize. You can look up Yahoo's stock symbols [here](https://finance.yahoo.com/lookup). Some common symbols are GOOG (Google), AAPL (Apple), and GS (Goldman Sachs).
