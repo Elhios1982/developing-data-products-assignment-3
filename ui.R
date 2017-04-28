@@ -36,7 +36,11 @@ shinyUI(fluidPage(
                      in the calendar boxes for \"Date Range\"."
                    , tags$br()
                    , "Choose whether to plot stock prices or the log of the stock prices on the y axis, and 
-                      Decide whether or not to correct prices for inflation with the two checkboxes.")  
+                      Decide whether or not to correct prices for inflation with the two checkboxes."
+                   , tags$br()
+                   , "The Github repository for this application can be found "
+                   , tags$a(href="https://github.com/Elhios1982/developing-data-products-assignment-3.git","here")
+                   )  
         )
     )
   )
